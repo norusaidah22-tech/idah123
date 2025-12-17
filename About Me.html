@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Me</title>
+
+<!-- Font Awesome untuk ikon sosial media -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* ===========================
+   GLOBAL STYLING
+=========================== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #758A93;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+header {
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+/* ===========================
+   NAVIGATION
+=========================== */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background: #333;
+}
+
+nav ul li a {
+    color: white;
+    padding: 14px 16px;
+    display: block;
+    text-decoration: none;
+}
+
+nav ul li a.active {
+    background: white;
+    color: black;
+    font-weight: bold;
+}
+
+/* ===========================
+   MAIN CONTENT
+=========================== */
+main {
+    padding: 40px 20px;
+    background-image: url('image/cantik.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ===== Fade In Animation ===== */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== About Wrapper ===== */
+.about-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    background: transparent;
+    padding: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+/* ===== Title ===== */
+.title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.1s;
+}
+
+/* ===== Grid Layout ===== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+@media(max-width: 900px){
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== BOX ===== */
+.box {
+    background: #F7DADA;
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 180px;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Delay fade-in untuk setiap box */
+.box:nth-child(1){animation-delay:0.2s;}
+.box:nth-child(2){animation-delay:0.3s;}
+.box:nth-child(3){animation-delay:0.4s;}
+.box:nth-child(4){animation-delay:0.5s;}
+.box:nth-child(5){animation-delay:0.6s;}
+.box:nth-child(6){animation-delay:0.7s;}
+
+.box h3 {
+    margin-top: 0;
+}
+
+.box a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.box a:hover {
+    color: #FF69B4;
+}
+
+/* ===== Profile Box ===== */
+.profile-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.profile-circle {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #FFFFFF;
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== Full Width Box ===== */
+.full {
+    grid-column: 1 / -1;
+}
+
+/* ===== Hobby Image ===== */
+.hobby-img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+/* ===== FLIP CARD ===== */
+.flip-card {
+    width: 100%;
+    height: 220px;
+    perspective: 1000px;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Delay untuk flip-card */
+.flip-card:nth-child(1){animation-delay:0.3s;}
+.flip-card:nth-child(2){animation-delay:0.4s;}
+.flip-card:nth-child(3){animation-delay:0.5s;}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.flip-front {
+    background: #F7DADA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-front img {
+    width: 100%;       
+    height: 100%;      
+    object-fit: cover; 
+    border-radius: 15px;
+}
+
+.flip-back {
+    background: #FFE4E1;
+    transform: rotateY(180deg);
+    text-align: center;
+}
+
+/* ===== Audio Center ===== */
+.audio-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+/* ===== Highlight Text ===== */
+.highlight {
+    color: #000000; /* Tukar warna teks */
+    font-weight: bold; /* Tebalkan */
+    background-color: yellow; /* Highlight macam marker */
+    padding: 0 3px; /* Sedikit ruang kiri kanan */
+    border-radius: 3px; /* Bulatkan tepi sikit */
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+    background: #444;
+    color: white;
+    text-align: center;
+    padding: 6px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===========================
+     HEADER
+=========================== -->
+<header>
+    <h1>Idah Personal Page</h1>
+</header>
+
+<!-- ===========================
+     NAVIGATION
+=========================== -->
+<nav>
+<ul>
+    <li><a href="Index.html">Home</a></li>
+    <li><a href="About Me.html" class="active">About Me</a></li>
+    <li><a href="Experience.html">Experience</a></li>
+    <li><a href="Education.html">Education</a></li>
+    <li><a href="Gallery.html">Gallery</a></li>
+</ul>
+</nav>
+
+<!-- ===========================
+     MAIN CONTENT
+=========================== -->
+<main>
+<div class="about-wrapper">
+
+    <div class="title">All About Me</div>
+
+    <div class="grid">
+
+        <!-- HOBBY BOX -->
+        <div class="box">
+            <h3>Hobby</h3>
+            <img src="image/hobi.jpeg" class="hobby-img" alt="Hobby">
+        </div>
+
+        <!-- PROFILE BOX -->
+        <div class="box profile-box">
+            <div class="profile-circle">
+                <img src="image/idah.jpg" alt="Profile Picture">
+            </div>
+        </div>
+
+        <!-- PERSONAL INFO BOX -->
+        <div class="box">
+            <h3>Me</h3>
+            <p>
+                Name: Noru Saidah<br>
+                Age: 20<br>
+                Address: Pasir Mas, Kelantan<br>
+                Email: norusaidah22@gmail.com<br>
+                Date of Birth: 16 February 2005
+            </p>
+            <p>
+                <a href="https://www.instagram.com/_idahhhhhh" target="_blank"><i class="fab fa-instagram fa-5x"></i></a>
+                <a href="https://www.facebook.com/share/1AhsJxMMpF/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook fa-5x"></i></a>
+                <a href="https://www.tiktok.com/@plussshe" target="_blank"><i class="fab fa-tiktok fa-5x"></i></a>
+            </p>
+        </div>
+
+        <!-- FAMILY FLIP CARD -->
+        <div class="box">
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <img src="image/momdad.jpg" alt="Family">
+                    </div>
+                    <div class="flip-back">
+                        <h3>Lover</h3>
+                        <p>Mom: Nuriyah Binti Aziz (<span class="highlight">50 Years Old</span>)</p>
+                        <p>Dad: Zulkeflee Bin Abdul Rahman (<span class="highlight">62 Years Old</span>)</p>
+                        <p>Both are very supportive and care for all of their children</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAVORITE MUSIC FLIP CARD -->
+        <div class="box">
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <img src="image/muzik.png" alt="Music">
+                    </div>
+                    <div class="flip-back">
+                        <h3>My Favourite</h3>
+                        <p>🎵 Music<br></p>
+                        <p>Penjaga Hati - Nadhif Basalamah</p>
+                        <div class="audio-center">
+                            <audio controls autoplay loop>
+                                <source src="audio/penjaga-hati.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIKES FLIP CARD -->
+        <div class="box">
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <img src="image/likes.jpeg" alt="Likes">
+                    </div>
+                    <div class="flip-back">
+                        <h3>Likes</h3>
+                        <p>Kuromi Bear 🐱<br>Sunset 🌅<br>Photography 📸</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SKILLS FULL WIDTH BOX -->
+        <div class="box full">
+            <h3>Skills</h3>
+            <p>
+                I am able to use Microsoft Word, Excel, PowerPoint, Canva, and CapCut for completing assignments and other tasks.
+            </p>
+            <p style="margin-top:20px; display:flex; justify-content:center; gap:25px; flex-wrap:wrap;">
+                <a href="https://www.microsoft.com/en-us/microsoft-365/word" target="_blank">
+                    <img src="image/word.jpg" style="width:50px; height:50px;" alt="Word">
+                </a>
+                <a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank">
+                    <img src="image/excel.jpeg" style="width:50px; height:50px;" alt="Excel">
+                </a>
+                <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint" target="_blank">
+                    <img src="image/pp.jpeg" style="width:50px; height:50px;" alt="PowerPoint">
+                </a>
+                <a href="https://www.canva.com/" target="_blank">
+                    <img src="image/canva.jpeg" style="width:50px; height:50px;" alt="Canva">
+                </a>
+                <a href="https://www.capcut.com/" target="_blank">
+                    <img src="image/capcut.jpg" style="width:50px; height:50px;" alt="CapCut">
+                </a>
+            </p>
+        </div>
+
+    </div>
+</div>
+</main>
+
+<!-- ===========================
+     FOOTER
+=========================== -->
+<footer>
+<p>&copy; 2025 This Website is for educational purpose only | Noru Saidah Binti Zulkeflee
+<span id="currentDate"></span>
+<span id="currentTime"></span></p>
+</footer>
+
+<!-- ===========================
+     SCRIPT: DATE & TIME UPDATE
+=========================== -->
+<script>
+function updateDateTime() {
+    const now = new Date();
+
+    const date = now.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    });
+
+    const time = now.toLocaleTimeString('en-GB');
+
+    document.getElementById("currentDate").innerHTML = " | " + date;
+    document.getElementById("currentTime").innerHTML = " | " + time;
+}
+
+// Update every second
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
+
+</body>
+</html>
+
+

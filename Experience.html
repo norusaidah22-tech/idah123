@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experience</title>
+
+    <style>
+        /* ===== GLOBAL STYLE ===== */
+        body {
+            background-color: #758A93;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #758A93;
+            color: ghostwhite;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333333;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        ul li a {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul li a.active {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* ===== MAIN SECTION ===== */
+        main {
+            flex: 1;
+            text-align: center;
+            background-image: url('image/cantik.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-content {
+            width: 100%;
+            max-width: 1000px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== EXPERIENCE CONTAINER ===== */
+        .experience-container {
+            background: #E0E0E0
+                <img src="image/primary school 2.jpg">
+                <img src="image/gambar s_.jpg">
+                <img src="image/primary school 2.jpg">
+                <img src="image/gambar s_.jpg">
+                <img src="image/primary school 2.jpg">
+                <img src="image/gambar s_.jpg">
+                <img src="image/primary school 2.jpg">
+                <img src="image/gambar s_.jpg">
+                <img src="image/primary school 2.jpg">
+                <img src="image/gambar s_.jpg">
+                <img src="image/primary school 2.jpg">
+                <img src="image/gambar s_.jpg">;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #444444;
+            color: #FFFFFF;
+            padding: 4px;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        /* ===== EXPERIENCE GALLERY ===== */
+        .experience-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+            max-width: 1000px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .experience-gallery img,
+        .experience-gallery video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease forwards;
+            animation-delay: calc(var(--i) * 0.2s);
+        }
+
+        /* ===== DELAY ANIMATION ===== */
+        .experience-gallery img:nth-child(1) { --i: 0; }
+        .experience-gallery img:nth-child(2) { --i: 1; }
+        .experience-gallery img:nth-child(3) { --i: 2; }
+        .experience-gallery img:nth-child(4) { --i: 3; }
+        .experience-gallery img:nth-child(5) { --i: 4; }
+        .experience-gallery img:nth-child(6) { --i: 5; }
+        .experience-gallery img:nth-child(7) { --i: 6; }
+        .experience-gallery img:nth-child(8) { --i: 7; }
+        .experience-gallery img:nth-child(9) { --i: 8; }
+        .experience-gallery img:nth-child(10) { --i: 9; }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: auto;
+            max-height: auto;
+            overflow: visible;
+            border-radius: 10px;
+        }
+
+        .modal-content img {
+            width: auto;
+            height: auto;
+            max-width: 50%;
+            max-height: 40%;
+            object-fit: contain;
+            border-radius: 10px;
+            transform: scale(1.5);
+            transition: transform 0.3s ease;
+        }
+
+        main > .experience-container {
+            max-width: 1000px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Idah Personal Page</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="About Me.html">About Me</a></li>
+        <li><a href="Experience.html" class="active">Experience</a></li>
+        <li><a href="Education.html">Education</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <div class="main-content">
+        <h2>Hi ! Welcome to my experience page.</h2>
+        <p>This page will show how many experience involved!</p>
+
+        <div class="experience-container">
+            <h3 class="section-title">Internship</h3>
+            <div class="experience-item">
+                <p>
+                    I have completed a 2-month internship at <b>Hospital Pasir Mas</b>.
+                    During this time, I learned many new things, especially how to work as a team,
+                    communicate with staff, and manage tasks effectively in a fast-paced environment.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== INTERNSHIP GALLERY ===== -->
+    <div class="experience-gallery">
+        <img src="image/4.jpg">
+        <img src="image/5.jpg">
+        <img src="image/6.jpg">
+        <img src="image/7.jpg">
+        <img src="image/8.jpg">
+        <img src="image/9.jpg">
+    </div>
+
+    <div class="experience-container">
+        <h3 class="section-title">Kor Sukarelawan Polis Siswa Siswi (SUKSIS)</h3>
+        <div class="experience-item">
+            <p>I have a lot of experience by joining SUKSIS.</p>
+        </div>
+    </div>
+
+    <!-- ===== SUKSIS GALLERY ===== -->
+    <div class="experience-gallery">
+        <img src="image/uitm 11.jpeg">
+        
+        <img src="image/uitm 15.jpeg">
+        <img src="image/uitm 16.jpeg">
+        <img src="image/uitm 17.jpeg">
+        <img src="image/uitm 18.jpeg">
+        <img src="image/suksis.jpeg">
+        <img src="image/suksis 2.jpeg">
+
+        <!-- VIDEO -->
+        <video controls muted>
+            <source src="video/bedil.mp4" type="video/mp4">
+        </video>
+
+        <video controls muted>
+            <source src="video/aku.mp4" type="video/mp4">
+        </video>
+    </div>
+
+</main>
+
+<!-- ===== MODAL ===== -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img src="" id="modal-img">
+    </div>
+</div>
+
+<footer>
+    <p>
+        &copy; 2025 This Website is for educational purpose only |
+        Noru Saidah Binti Zulkeflee
+        <span id="currentDate"></span>
+        <span id="currentTime"></span>
+    </p>
+</footer>
+
+<script>
+    /* ===== IMAGE MODAL SCRIPT ===== */
+    const galleryImages = document.querySelectorAll('.experience-gallery img');
+    const modal = document.getElementById('myModal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.querySelector('.close-btn');
+
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+</script>
+
+<script>
+    /* ===== DATE ===== */
+    const dateElement = document.getElementById("currentDate");
+    const today = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    dateElement.innerHTML = " | " + today.toLocaleDateString('en-GB', options);
+</script>
+
+<script>
+    /* ===== LIVE TIME ===== */
+    function updateDateTime() {
+        const now = new Date();
+        const date = now.toLocaleDateString('en-GB', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric'
+        });
+        const time = now.toLocaleTimeString('en-GB');
+
+        document.getElementById("currentDate").innerHTML = " | " + date;
+        document.getElementById("currentTime").innerHTML = " | " + time;
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+</script>
+
+</body>
+</html>
+

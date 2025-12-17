@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Educational</title>
+
+    <style>
+        /* ===== GLOBAL ===== */
+        body {
+            background-color: #758A93;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #758A93;
+            color: ghostwhite;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333333;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        ul li a {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul li a.active {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            text-align: center;
+            background-image: url('image/cantik.jpg');  
+            background-size: cover;         
+            background-repeat: no-repeat;    
+            background-position: center;  
+            padding: 20px;
+        }
+
+        footer {
+            background: #444444;
+            color: #FFFFFF;
+            padding: 4px;
+            text-align: center;
+        }
+
+        /* ===== Fade-in animation ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Education Section ===== */
+        .edu-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .edu-header {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .edu-card {
+            background: #F6EDE8;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .edu-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+        }
+
+        .edu-icon {
+            font-size: 40px;
+            color: #4A6F7A;
+            width: 60px;
+            text-align: center;
+        }
+
+        .edu-content {
+            text-align: left;
+        }
+
+        /* ===== Slider Container ===== */
+        .slider-container {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            overflow: hidden;
+            margin: 15px auto;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .slider-images {
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-images img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+            background: rgba(0,0,0,0.4);
+            border-radius: 50%;
+            padding: 5px 10px;
+            z-index: 2;
+        }
+
+        .left { left: 10px; }
+        .right { right: 10px; }
+
+        .hidden-slider {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease;
+            margin-bottom: 20px;
+        }
+
+        .hidden-slider.show {
+            max-height: 600px;
+        }
+
+        /* Video slider */
+        .slider-videos video {
+            display: none;
+            border-radius: 5px;
+        }
+
+        .slider-videos video.active {
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1><b>Idah Personal Page</b></h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="About Me.html">About Me</a></li>
+        <li><a href="Experience.html">Experience</a></li>
+        <li><a href="Education.html" class="active">Education</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h2 class="fade-in">Hi! Welcome to educational page.</h2>
+    <p class="fade-in">This page will show about my educational journey!</p>
+
+    <div class="edu-section fade-in">
+
+        <h2 class="edu-header">My Education Journey</h2>
+
+        <!-- PRIMARY -->
+        <div class="edu-card" onclick="toggleSlider('primary')">
+            <div class="edu-icon">📘</div>
+            <div class="edu-content">
+                <h4>SK Meranti</h4>
+                <p>Primary School (Click to view photos)</p>
+            </div>
+        </div>
+
+        <div class="hidden-slider" id="primary">
+            <div class="slider-container">
+                <div class="slider-arrow left" onclick="prevImage('slider1')">‹</div>
+                <div class="slider-images" id="slider1">
+                    <img src="image/sk meranti.jpg">
+                    <img src="image/sk meranti 2.jpg">
+                    <img src="image/gambar 1.jpg">
+                    <img src="image/gambar 2.jpg">
+                    <img src="image/gambar 3.jpg">
+                    <img src="image/gambar 4.jpg">
+                
+                </div>
+                <div class="slider-arrow right" onclick="nextImage('slider1')">›</div>
+            </div>
+        </div>
+
+        <!-- SECONDARY -->
+        <div class="edu-card" onclick="toggleSlider('secondary')">
+            <div class="edu-icon">🏫</div>
+            <div class="edu-content">
+                <h4>SMK Kubang Bemban</h4>
+                <p>Secondary School (Click to view photos + video)</p>
+            </div>
+        </div>
+
+        <div class="hidden-slider" id="secondary">
+            <div class="slider-container">
+                <div class="slider-arrow left" onclick="prevImage('slider2')">‹</div>
+                <div class="slider-images" id="slider2">
+                    <img src="image/kubang.jpg">
+                    <img src="image/kubang 1.jpg">
+                    <img src="image/kubang 4.jpg">
+                    <img src="image/kubang 3.jpg">
+                </div>
+                <div class="slider-arrow right" onclick="nextImage('slider2')">›</div>
+            </div>
+        </div>
+
+        <div class="hidden-slider" id="videoSecondary">
+            <div class="slider-container">
+                <div class="slider-arrow left" onclick="prevVideo('videoSlider')">‹</div>
+                <div class="slider-videos" id="videoSlider">
+                    <video width="100%" height="500" controls>
+                        <source src="video/kem.mp4" type="video/mp4">
+                    </video>
+                    <video width="100%" height="500" controls>
+                        <source src="video/kem 2.mp4" type="video/mp4">
+                    </video>
+                    <video width="100%" height="500" controls>
+                        <source src="video/hari raya.mp4" type="video/mp4">
+                    </video>
+                   
+                    </video>
+                </div>
+                <div class="slider-arrow right" onclick="nextVideo('videoSlider')">›</div>
+            </div>
+        </div>
+
+        <!-- UITM -->
+        <div class="edu-card" onclick="toggleSlider('uitm')">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-content">
+                <h4>UiTM</h4>
+                <p>Diploma in Information Management (Click to view photos)</p>
+            </div>
+        </div>
+
+        <div class="hidden-slider" id="uitm">
+            <div class="slider-container">
+                <div class="slider-arrow left" onclick="prevImage('slider3')">‹</div>
+                <div class="slider-images" id="slider3">
+                    <img src="image/uitm 1.jpeg">
+                    <img src="image/uitm 3.jpeg">
+                    <img src="image/uitm 2.jpeg">
+                    <img src="image/uitm 4.jpeg">
+                </div>
+                <div class="slider-arrow right" onclick="nextImage('slider3')">›</div>
+            </div>
+        </div>
+
+      
+
+    </div>
+</main>
+
+<footer>
+    <p>
+        &copy; 2025 This Website is for educational purpose only |
+        Noru Saidah Binti Zulkeflee
+        <span id="currentDate"></span>
+        <span id="currentTime"></span>
+    </p>
+</footer>
+
+<script>
+    /* ===== Toggle slider show/hide ===== */
+    function toggleSlider(id){
+        if(id === 'secondary'){
+            document.getElementById('secondary').classList.toggle("show");
+            document.getElementById('videoSecondary').classList.toggle("show");
+        } else if(id === 'uitm'){
+            document.getElementById('uitm').classList.toggle("show");
+            document.getElementById('videoUitm').classList.toggle("show");
+        } else {
+            document.getElementById(id).classList.toggle("show");
+        }
+    }
+
+    /* ===== Image slider ===== */
+    function nextImage(sliderId){
+        const slider = document.getElementById(sliderId);
+        slider.appendChild(slider.children[0]);
+    }
+
+    function prevImage(sliderId){
+        const slider = document.getElementById(sliderId);
+        slider.insertBefore(slider.lastElementChild, slider.firstElementChild);
+    }
+
+    /* ===== Video slider ===== */
+    let currentVideoIndex = 0;
+    let currentVideoIndexUitm = 0;
+
+    function nextVideo(sliderId) {
+        const slider = document.getElementById(sliderId);
+        const vids = slider.getElementsByTagName('video');
+
+        for (let v of vids) {
+            v.pause();
+            v.currentTime = 0;
+            v.classList.remove('active');
+        }
+
+        if(sliderId === 'videoSlider') {
+            currentVideoIndex = (currentVideoIndex + 1) % vids.length;
+            vids[currentVideoIndex].classList.add('active');
+            vids[currentVideoIndex].play();
+        } else if(sliderId === 'videoSliderUitm') {
+            currentVideoIndexUitm = (currentVideoIndexUitm + 1) % vids.length;
+            vids[currentVideoIndexUitm].classList.add('active');
+            vids[currentVideoIndexUitm].play();
+        }
+    }
+
+    function prevVideo(sliderId) {
+        const slider = document.getElementById(sliderId);
+        const vids = slider.getElementsByTagName('video');
+
+        for (let v of vids) {
+            v.pause();
+            v.currentTime = 0;
+            v.classList.remove('active');
+        }
+
+        if(sliderId === 'videoSlider') {
+            currentVideoIndex = (currentVideoIndex - 1 + vids.length) % vids.length;
+            vids[currentVideoIndex].classList.add('active');
+            vids[currentVideoIndex].play();
+        } else if(sliderId === 'videoSliderUitm') {
+            currentVideoIndexUitm = (currentVideoIndexUitm - 1 + vids.length) % vids.length;
+            vids[currentVideoIndexUitm].classList.add('active');
+            vids[currentVideoIndexUitm].play();
+        }
+    }
+
+    /* ===== Date & Time ===== */
+    function updateDateTime() {
+        const now = new Date();
+        const date = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+        const time = now.toLocaleTimeString('en-GB');
+        document.getElementById("currentDate").innerHTML = " | " + date;
+        document.getElementById("currentTime").innerHTML = " | " + time;
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+</script>
+
+</body>
+</html>
+
+
+
